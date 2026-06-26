@@ -1,0 +1,558 @@
+{
+  "Melanoma": {
+    "id": "melanoma",
+    "name": "Melanoma",
+    "nameHi": "मेलेनोमा (त्वचा कैंसर)",
+    "category": "Skin Conditions",
+    "description": "A serious type of skin cancer that develops in the cells (melanocytes) that produce melanin, the pigment that gives skin its color.",
+    "descriptionHi": "एक गंभीर प्रकार का त्वचा कैंसर जो मेलेनोसाइट्स कोशिकाओं में विकसित होता है जो त्वचा को रंग देने वाले मेलेनिन का उत्पादन करती हैं।",
+    "causes": [
+      "Ultraviolet (UV) radiation from sunlight or tanning beds",
+      "Genetic factors and family history",
+      "Fair skin, history of severe sunburns, or many atypical moles"
+    ],
+    "homeCare": [
+      "Seek professional medical consultation immediately.",
+      "Do NOT try to scrape, cut, or treat the lesion at home.",
+      "Track other skin lesions using the ABCDE method (Asymmetry, Border, Color, Diameter, Evolving)."
+    ],
+    "diet": [
+      "Eat a diet rich in antioxidants (berries, leafy greens, nuts).",
+      "Include cruciferous vegetables (broccoli, brussels sprouts) and green tea."
+    ],
+    "lifestyleTips": [
+      "Avoid direct sun exposure between 10 AM and 4 PM.",
+      "Wear broad-spectrum sunscreen (SPF 30+) daily.",
+      "Conduct monthly skin self-exams."
+    ],
+    "warningSignsForDoctor": [
+      "Lesion that is asymmetrical, has jagged borders, or multiple colors",
+      "Diameter larger than 6mm",
+      "Bleeding, itching, or rapidly growing skin spot"
+    ],
+    "urgency": "emergency",
+    "prevention": [
+      "Protect skin from UV radiation.",
+      "Avoid tanning beds.",
+      "Schedule annual skin checkups with a dermatologist."
+    ],
+    "severity": "severe"
+  },
+  "Basal Cell Carcinoma (BCC)": {
+    "id": "basal_cell_carcinoma",
+    "name": "Basal Cell Carcinoma (BCC)",
+    "nameHi": "बेसल सेल कार्सिनोमा (त्वचा कैंसर)",
+    "category": "Skin Conditions",
+    "description": "A type of skin cancer that begins in the basal cells, which produce new skin cells as old ones die off. It often appears as a slightly transparent bump on the skin.",
+    "descriptionHi": "एक प्रकार का त्वचा कैंसर जो बेसल कोशिकाओं में शुरू होता है। यह अक्सर त्वचा पर थोड़े पारदर्शी या चमकदार उभार के रूप में दिखाई देता है।",
+    "causes": [
+      "Long-term exposure to ultraviolet (UV) radiation from sunlight",
+      "Fair skin, history of radiation therapy, or chronic exposure to arsenic"
+    ],
+    "homeCare": [
+      "Consult a dermatologist for surgical evaluation.",
+      "Avoid picking at or squeezing the bump.",
+      "Keep the area clean and protected from further sun damage."
+    ],
+    "diet": [
+      "Maintain a balanced diet rich in Vitamins A, C, and E.",
+      "Eat plenty of fresh fruits and vegetables to support tissue repair."
+    ],
+    "lifestyleTips": [
+      "Apply daily facial sunscreen.",
+      "Wear wide-brimmed hats when outdoors.",
+      "Check your skin regularly for new growths or changes in existing spots."
+    ],
+    "warningSignsForDoctor": [
+      "A pearly or waxy bump on your face, ears, or neck",
+      "A flat, flesh-colored or brown scar-like lesion",
+      "A bleeding or scabby sore that heals and returns"
+    ],
+    "urgency": "within_24hrs",
+    "prevention": [
+      "Minimize direct sun exposure.",
+      "Use protective clothing and sunscreen.",
+      "Avoid outdoor activities during intense peak sunlight hours."
+    ],
+    "severity": "severe"
+  },
+  "Squamous Cell Carcinoma (SCC)": {
+    "id": "squamous_cell_carcinoma",
+    "name": "Squamous Cell Carcinoma (SCC)",
+    "nameHi": "स्क्वामस सेल कार्सिनोमा (त्वचा कैंसर)",
+    "category": "Skin Conditions",
+    "description": "A common form of skin cancer that develops in the squamous cells, which make up the middle and outer layers of the skin. It is usually not life-threatening but can be aggressive.",
+    "descriptionHi": "त्वचा कैंसर का एक रूप जो स्क्वामस कोशिकाओं में विकसित होता है। यह आमतौर पर जानलेवा नहीं होता लेकिन आक्रामक हो सकता है।",
+    "causes": [
+      "Cumulative, long-term exposure to UV radiation",
+      "Weakened immune system or chronic skin sores/scars"
+    ],
+    "homeCare": [
+      "Schedule diagnostic evaluation and surgical removal with a specialist.",
+      "Do not attempt any self-treatment.",
+      "Keep the affected area covered and clean."
+    ],
+    "diet": [
+      "Consume anti-inflammatory foods (fatty fish, olive oil, berries).",
+      "Ensure adequate protein intake to support wound healing."
+    ],
+    "lifestyleTips": [
+      "Wear sun-protective clothing (UPF rated is best).",
+      "Avoid sunburns and outdoor tanning.",
+      "Inspect skin regularly."
+    ],
+    "warningSignsForDoctor": [
+      "A firm, red nodule on your face, lips, ears, or hands",
+      "A flat sore with a scaly crust",
+      "A new sore or raised area on an old scar or ulcer"
+    ],
+    "urgency": "within_24hrs",
+    "prevention": [
+      "Daily sun protection.",
+      "Avoid carcinogens and tanning beds.",
+      "Regular checkups for any pre-cancerous spots (actinic keratosis)."
+    ],
+    "severity": "severe"
+  },
+  "Actinic Keratosis": {
+    "id": "actinic_keratosis",
+    "name": "Actinic Keratosis",
+    "nameHi": "एक्टिनिक केराटोसिस (धूप के चकत्ते)",
+    "category": "Skin Conditions",
+    "description": "A rough, scaly patch on the skin caused by years of sun exposure. It is considered precancerous and can progress to squamous cell carcinoma if left untreated.",
+    "descriptionHi": "सालों तक धूप के संपर्क में रहने के कारण त्वचा पर खुरदरा, पपड़ीदार पैच। इसे कैंसर-पूर्व अवस्था माना जाता है।",
+    "causes": [
+      "Chronic exposure to ultraviolet (UV) radiation from sunlight or tanning lamps"
+    ],
+    "homeCare": [
+      "Dermatologist consultation is recommended to freeze or prescribe creams to treat the patches.",
+      "Do not scratch or try to peel off the dry skin patches."
+    ],
+    "diet": [
+      "Focus on leafy vegetables, citrus fruits, and nuts rich in antioxidants.",
+      "Drink plenty of water."
+    ],
+    "lifestyleTips": [
+      "Use broad-spectrum sunscreen daily.",
+      "Wear protective clothing and hats.",
+      "Routinely scan sun-exposed areas (face, scalp, hands)."
+    ],
+    "warningSignsForDoctor": [
+      "A patch that becomes painful, bleeds, or grows larger",
+      "Development of a hardened, horn-like projection",
+      "Rapidly multiplying patches"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Early sunscreen adoption.",
+      "Regular skin examinations.",
+      "Avoiding intense sun exposure."
+    ],
+    "severity": "moderate"
+  },
+  "Eczema / Atopic Dermatitis": {
+    "id": "eczema",
+    "name": "Eczema / Atopic Dermatitis",
+    "nameHi": "एक्जिमा (खुजली वाली त्वचा)",
+    "category": "Skin Conditions",
+    "description": "A chronic inflammatory skin condition characterized by dry, itchy, and red patches. It is common in children but can occur at any age.",
+    "descriptionHi": "एक पुरानी सूजन वाली त्वचा की स्थिति जिसमें सूखी, खुजलीदार और लाल त्वचा हो जाती है।",
+    "causes": [
+      "Genetic predisposition and immune system dysregulation",
+      "Environmental triggers (soaps, allergens, stress, cold weather)",
+      "Skin barrier dysfunction"
+    ],
+    "homeCare": [
+      "Moisturize skin at least twice daily with thick, fragrance-free creams.",
+      "Take lukewarm baths rather than hot showers.",
+      "Use gentle, non-soap body washes."
+    ],
+    "diet": [
+      "Identify and avoid food allergens that trigger flares.",
+      "Incorporate anti-inflammatory foods like omega-3 fatty acids (flaxseeds, walnuts)."
+    ],
+    "lifestyleTips": [
+      "Wear soft, breathable cotton clothing.",
+      "Use a humidifier in dry weather.",
+      "Keep fingernails trimmed short to prevent skin damage from scratching."
+    ],
+    "warningSignsForDoctor": [
+      "Skin looks infected (pus, red streaks, yellow crusts)",
+      "Eczema flares that disrupt sleep or daily activities",
+      "Severe pain or sudden worsening of the rash"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Avoid harsh chemicals, detergents, and perfumes.",
+      "Manage emotional stress.",
+      "Maintain a consistent skin barrier routine."
+    ],
+    "severity": "moderate"
+  },
+  "Psoriasis": {
+    "id": "psoriasis",
+    "name": "Psoriasis",
+    "nameHi": "सोरायसिस (त्वचा पर पपड़ी)",
+    "category": "Skin Conditions",
+    "description": "An autoimmune skin condition that speeds up the life cycle of skin cells, causing cells to build up rapidly on the surface of the skin, forming thick silvery scales and itchy, red patches.",
+    "descriptionHi": "एक ऑटोइम्यून त्वचा की स्थिति जिसमें त्वचा की कोशिकाएं तेजी से बढ़ती हैं, जिससे सतह पर चांदी जैसी पपड़ी बन जाती है।",
+    "causes": [
+      "Autoimmune dysfunction where T-cells attack healthy skin cells",
+      "Triggers such as stress, skin injuries, infections, or certain medications"
+    ],
+    "homeCare": [
+      "Apply prescription topical ointments regularly.",
+      "Moisturize daily to prevent cracking and irritation.",
+      "Take soothing baths with Epsom salts or oatmeal."
+    ],
+    "diet": [
+      "Adopt an anti-inflammatory diet.",
+      "Limit red meat, dairy, and processed sugars.",
+      "Stay hydrated."
+    ],
+    "lifestyleTips": [
+      "Avoid dry, cold weather triggers when possible.",
+      "Expose skin to very brief, safe periods of morning sunlight.",
+      "Avoid scratching or peeling off skin scales."
+    ],
+    "warningSignsForDoctor": [
+      "Joint pain, stiffness, or swelling (signs of psoriatic arthritis)",
+      "Psoriasis covering a very large percentage of the body",
+      "Signs of secondary bacterial infection"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Manage stress levels through yoga or meditation.",
+      "Avoid skin injuries (cuts, scrapes, sunburns).",
+      "Avoid smoking and excessive alcohol."
+    ],
+    "severity": "moderate"
+  },
+  "Acne / Rosacea": {
+    "id": "acne_rosacea",
+    "name": "Acne / Rosacea",
+    "nameHi": "मुँहासे / रोसैसिया",
+    "category": "Skin Conditions",
+    "description": "Common facial skin conditions. Acne involves clogged pores, blackheads, and pimples. Rosacea causes redness, flushing, and small pus-filled bumps on the face.",
+    "descriptionHi": "चेहरे की आम त्वचा की स्थितियां। मुँहासे में बंद छिद्र और दाने होते हैं; रोसैसिया चेहरे पर लालिमा का कारण बनता है।",
+    "causes": [
+      "Excess sebum production and bacteria (for Acne)",
+      "Vascular dysfunction, genetics, and microscopic skin mites (for Rosacea)",
+      "Triggers like spicy foods, alcohol, hot drinks, and extreme temperatures (for Rosacea)"
+    ],
+    "homeCare": [
+      "Wash face twice daily with a mild, non-comedogenic cleanser.",
+      "Avoid scrubbing or squeezing pimples/bumps.",
+      "Use water-based, oil-free cosmetics."
+    ],
+    "diet": [
+      "Limit high-glycemic index foods and dairy (may trigger acne).",
+      "Avoid spicy foods, hot beverages, and alcohol (common rosacea triggers)."
+    ],
+    "lifestyleTips": [
+      "Wear sunscreen daily, as sun exposure can trigger rosacea flares.",
+      "Avoid harsh physical scrubs or alcohol-based toners.",
+      "Keep a journal to identify personal rosacea triggers."
+    ],
+    "warningSignsForDoctor": [
+      "Severe cystic acne causing permanent scarring",
+      "Eye irritation, dryness, or redness (ocular rosacea)",
+      "Thickening of skin on the nose (rhinophyma)"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Keep hair clean and off the face.",
+      "Avoid touching the face frequently.",
+      "Maintain a basic, gentle skincare routine."
+    ],
+    "severity": "mild"
+  },
+  "Vitiligo": {
+    "id": "vitiligo",
+    "name": "Vitiligo",
+    "nameHi": "विटिलिगो (सफेद दाग)",
+    "category": "Skin Conditions",
+    "description": "A condition in which the skin loses its pigment-producing cells (melanocytes), resulting in discolored patches of skin on various parts of the body.",
+    "descriptionHi": "एक स्थिति जिसमें त्वचा अपनी रंगद्रव्य बनाने वाली कोशिकाओं को खो देती है, जिससे सफेद धब्बे बन जाते हैं।",
+    "causes": [
+      "Autoimmune response where the body attacks its own melanocytes",
+      "Genetic predisposition and family history",
+      "Trigger events such as severe sunburn, stress, or chemical exposure"
+    ],
+    "homeCare": [
+      "Protect depigmented patches from sunburn using high SPF sunscreen.",
+      "Consider cosmetic concealment/makeup if desired.",
+      "Do not use unverified home herbal remedies that promise rapid repigmentation."
+    ],
+    "diet": [
+      "Consume a nutrient-rich diet with Vitamin B12, Folic Acid, and Copper.",
+      "Include foods like spinach, chickpeas, and walnuts."
+    ],
+    "lifestyleTips": [
+      "Avoid skin trauma (cuts, scrapes, tight clothing) which can cause vitiligo spots to expand (Koebner phenomenon).",
+      "Stay positive and seek support if vitiligo affects your emotional well-being."
+    ],
+    "warningSignsForDoctor": [
+      "Rapidly spreading white patches",
+      "Signs of other autoimmune disorders (e.g., thyroid disease, fatigue)",
+      "Sunburnt or blistering white patches"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Protect skin from severe physical injury and sun damage."
+    ],
+    "severity": "mild"
+  },
+  "Fungal Infection (Tinea)": {
+    "id": "fungal_infection",
+    "name": "Fungal Infection (Tinea)",
+    "nameHi": "फंगल संक्रमण (दाद/खुजली)",
+    "category": "Skin Conditions",
+    "description": "A superficial skin infection caused by dermatophyte fungi, leading to circular, red, itchy rashes (often called ringworm, athlete's foot, or jock itch).",
+    "descriptionHi": "फंगस के कारण होने वाला त्वचा का संक्रमण, जिससे गोल, लाल और खुजलीदार चकत्ते (दाद) हो जाते हैं।",
+    "causes": [
+      "Infection by dermatophyte fungi spreading through direct contact",
+      "Warm, humid environments and wearing damp clothing",
+      "Sharing towels, clothing, or combs with infected individuals"
+    ],
+    "homeCare": [
+      "Apply over-the-counter antifungal creams (Clotrimazole, Miconazole) as directed.",
+      "Keep the affected skin clean and completely dry.",
+      "Avoid scratching the rash to prevent spreading it to other parts of the body."
+    ],
+    "diet": [
+      "Limit sugar and refined carbohydrates (which can feed fungal growth).",
+      "Include garlic, yogurt, and coconut oil (known for natural antimicrobial properties)."
+    ],
+    "lifestyleTips": [
+      "Wear loose, breathable cotton clothing.",
+      "Change socks and underwear daily.",
+      "Shower immediately after heavy workouts or sweating."
+    ],
+    "warningSignsForDoctor": [
+      "Infection does not improve after 2 weeks of antifungal treatment",
+      "Signs of secondary bacterial infection (increased pain, swelling, warmth, pus)",
+      "Infection spreads extensively or covers the scalp/nails"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Do not share personal items (towels, hairbrushes).",
+      "Keep feet dry and wear slippers in public showers.",
+      "Treat infected pets immediately."
+    ],
+    "severity": "mild"
+  },
+  "Normal / Benign Nevus": {
+    "id": "normal_skin",
+    "name": "Normal / Benign Nevus",
+    "nameHi": "सामान्य त्वचा / साधारण तिल",
+    "category": "Skin Conditions",
+    "description": "Healthy skin or a common benign mole (nevus). Requires no medical intervention, but standard sun hygiene should be practiced.",
+    "descriptionHi": "स्वस्थ त्वचा या एक सामान्य तिल। किसी चिकित्सा उपचार की आवश्यकता नहीं है।",
+    "causes": [
+      "Normal cell clustering or pigmentation"
+    ],
+    "homeCare": [
+      "No medical treatment required.",
+      "Practice standard sun safety.",
+      "Keep track of skin spots once a month."
+    ],
+    "diet": [
+      "Maintain a healthy, balanced diet."
+    ],
+    "lifestyleTips": [
+      "Use sunscreen regularly.",
+      "Conduct regular self-checks."
+    ],
+    "warningSignsForDoctor": [
+      "Changes in size, color, or shape of any mole"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Standard UV safety precautions."
+    ],
+    "severity": "mild"
+  },
+  "Diabetic Retinopathy (DR)": {
+    "id": "diabetic_retinopathy",
+    "name": "Diabetic Retinopathy (DR)",
+    "nameHi": "मधुमेह नेत्र रोग (डायबिटिक रेटिनोपैथी)",
+    "category": "Eye Conditions",
+    "description": "A diabetes complication that affects eyes. It's caused by damage to the blood vessels of the light-sensitive tissue at the back of the eye (retina), potentially leading to blindness.",
+    "descriptionHi": "मधुमेह (शुगर) की एक जटिलता जो आंखों को प्रभावित करती है। यह रेटिना की रक्त वाहिकाओं के क्षतिग्रस्त होने से होती है।",
+    "causes": [
+      "Chronic high blood sugar levels from diabetes",
+      "Poor glycemic control, hypertension, and high cholesterol"
+    ],
+    "homeCare": [
+      "Monitor blood sugar levels strictly at home.",
+      "Schedule immediate diagnostic consultation with an ophthalmologist.",
+      "Never attempt eye drops or self-medications."
+    ],
+    "diet": [
+      "Follow a strict low-glycemic, diabetic-friendly diet.",
+      "Eat plenty of green leafy vegetables and omega-3 fatty acids."
+    ],
+    "lifestyleTips": [
+      "Maintain active exercise routines.",
+      "Keep blood pressure and cholesterol levels in check.",
+      "Undergo annual dilated eye exams if you have diabetes."
+    ],
+    "warningSignsForDoctor": [
+      "Sudden blurriness or spots/floaters in your vision",
+      "Fluctuating vision or dark/empty areas in your field of vision",
+      "Sudden vision loss"
+    ],
+    "urgency": "emergency",
+    "prevention": [
+      "Keep diabetes under tight control.",
+      "Avoid smoking.",
+      "Routine professional eye monitoring."
+    ],
+    "severity": "severe"
+  },
+  "Glaucoma": {
+    "id": "glaucoma",
+    "name": "Glaucoma",
+    "nameHi": "काला मोतिया (ग्लूकोमा)",
+    "category": "Eye Conditions",
+    "description": "A group of eye conditions that damage the optic nerve, the health of which is vital for good vision. This damage is often caused by an abnormally high pressure in your eye.",
+    "descriptionHi": "आंखों की स्थितियों का एक समूह जो ऑप्टिक तंत्रिका को नुकसान पहुंचाता है, यह अक्सर आंख में बढ़े हुए दबाव के कारण होता है।",
+    "causes": [
+      "Increased intraocular pressure (IOP) due to fluid buildup",
+      "Genetic predisposition and age (usually over 60)"
+    ],
+    "homeCare": [
+      "See an eye specialist immediately; glaucoma damage is irreversible.",
+      "Take prescribed eye drops exactly as scheduled by your doctor.",
+      "Avoid heavy lifting or exercises that increase head pressure."
+    ],
+    "diet": [
+      "Eat foods rich in zinc, copper, selenium, and vitamins A, C, and E.",
+      "Drink fluids in small amounts throughout the day instead of large quantities at once."
+    ],
+    "lifestyleTips": [
+      "Practice moderate exercise (like walking) which can help lower eye pressure.",
+      "Sleep with your head elevated slightly.",
+      "Protect your eyes from physical injuries."
+    ],
+    "warningSignsForDoctor": [
+      "Severe eye pain accompanied by nausea and vomiting",
+      "Sudden visual disturbances, blurred vision, or halos around lights",
+      "Loss of peripheral (side) vision"
+    ],
+    "urgency": "emergency",
+    "prevention": [
+      "Regular dilated eye exams (especially if you have a family history).",
+      "Early detection is key to preventing vision loss."
+    ],
+    "severity": "severe"
+  },
+  "Cataracts": {
+    "id": "cataracts",
+    "name": "Cataracts",
+    "nameHi": "मोतियाबिंद (कैटरेक्ट)",
+    "category": "Eye Conditions",
+    "description": "A clouding of the normally clear lens of the eye. Most cataracts develop slowly and don't disturb eyesight early on, but eventually lead to blurry vision.",
+    "descriptionHi": "आंखों के लेंस का धुंधला हो जाना। इसके कारण धीरे-धीरे दृष्टि कमजोर और धुंधली हो जाती है।",
+    "causes": [
+      "Aging (most common cause)",
+      "Diabetes, previous eye injury, smoking, or prolonged corticosteroid use",
+      "Excessive exposure to sunlight/UV radiation"
+    ],
+    "homeCare": [
+      "Consult an ophthalmologist for evaluation and to discuss cataract surgery.",
+      "Use brighter lights for reading or close work.",
+      "Ensure your eyeglass prescription is up to date."
+    ],
+    "diet": [
+      "Eat foods high in antioxidants (lutein, zeaxanthin, spinach, kale).",
+      "Limit alcohol consumption."
+    ],
+    "lifestyleTips": [
+      "Wear sunglasses that block UV rays outdoors.",
+      "Avoid smoking.",
+      "Obtain magnifying lenses or strong reading glasses if needed."
+    ],
+    "warningSignsForDoctor": [
+      "Vision blurring that makes driving or daily tasks unsafe",
+      "Double vision in a single eye",
+      "Increased sensitivity to glare or halo effect around lights"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Regular eye exams.",
+      "UV eye protection.",
+      "Control blood sugar levels."
+    ],
+    "severity": "moderate"
+  },
+  "Age-Related Macular Degeneration (AMD)": {
+    "id": "macular_degeneration",
+    "name": "Age-Related Macular Degeneration (AMD)",
+    "nameHi": "मैक्युलर डीजनरेशन (आंखों की कमजोरी)",
+    "category": "Eye Conditions",
+    "description": "An eye disease that blurs the sharp, central vision needed for activities like reading and driving. It is a leading cause of vision loss in older adults.",
+    "descriptionHi": "आंखों की एक बीमारी जो पढ़ने और गाड़ी चलाने के लिए आवश्यक तेज, केंद्रीय दृष्टि को धुंधला कर देती है।",
+    "causes": [
+      "Aging process affecting the macula of the retina",
+      "Genetics, smoking, obesity, and cardiovascular diseases"
+    ],
+    "homeCare": [
+      "Diligently monitor your vision using an Amsler grid daily.",
+      "Schedule eye specialist evaluation immediately.",
+      "Do not smoke."
+    ],
+    "diet": [
+      "Follow the AREDS2 formulation if advised by your doctor (Vitamin C, E, Zinc, Lutein, Zeaxanthin).",
+      "Eat plenty of green leafy vegetables and fatty fish."
+    ],
+    "lifestyleTips": [
+      "Protect eyes from blue light and UV rays.",
+      "Maintain active cardiovascular fitness.",
+      "Use high-contrast reading materials."
+    ],
+    "warningSignsForDoctor": [
+      "Straight lines appearing wavy or distorted",
+      "A dark or blurry spot in the center of your vision",
+      "Rapid decline in central vision quality"
+    ],
+    "urgency": "within_24hrs",
+    "prevention": [
+      "Stop smoking.",
+      "Maintain normal blood pressure.",
+      "Wear sunglasses and protect eyes from sun damage."
+    ],
+    "severity": "severe"
+  },
+  "Normal / Healthy": {
+    "id": "normal_eye",
+    "name": "Normal / Healthy",
+    "nameHi": "स्वस्थ आंखें",
+    "category": "Eye Conditions",
+    "description": "Retinal scans indicate healthy structures. Maintain regular eye hygiene and checkups.",
+    "descriptionHi": "स्वस्थ आंखें। कोई असामान्यता नहीं पाई गई।",
+    "causes": [
+      "Healthy ocular state"
+    ],
+    "homeCare": [
+      "No treatment required.",
+      "Maintain standard eye hygiene."
+    ],
+    "diet": [
+      "Eat eye-healthy foods (leafy greens, citrus fruits, eggs)."
+    ],
+    "lifestyleTips": [
+      "Reduce digital screen eye strain by taking regular breaks.",
+      "Get comprehensive dilated eye exams periodically."
+    ],
+    "warningSignsForDoctor": [
+      "Any sudden change in vision, pain, or floaters"
+    ],
+    "urgency": "within_2_3_days",
+    "prevention": [
+      "Maintain healthy lifestyle habits."
+    ],
+    "severity": "mild"
+  }
+}

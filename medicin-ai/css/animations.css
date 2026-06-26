@@ -1,0 +1,291 @@
+/* =============================================
+   MedicAI — Animations
+   Micro-animations for premium UX
+   ============================================= */
+
+/* ---------- Card Entrance Animations ---------- */
+.card-enter {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: cardSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.card-enter:nth-child(1) { animation-delay: 0.05s; }
+.card-enter:nth-child(2) { animation-delay: 0.15s; }
+.card-enter:nth-child(3) { animation-delay: 0.25s; }
+.card-enter:nth-child(4) { animation-delay: 0.35s; }
+.card-enter:nth-child(5) { animation-delay: 0.45s; }
+
+@keyframes cardSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Confidence Bar Fill ---------- */
+.confidence-fill-animate {
+    width: 0 !important;
+    animation: fillBar 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fillBar {
+    to { width: var(--fill-width); }
+}
+
+/* ---------- Emergency Pulse ---------- */
+.pulse-emergency {
+    animation: emergencyPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes emergencyPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* ---------- Loading Skeleton ---------- */
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ---------- Analyzing Spinner ---------- */
+.analyzing-spinner {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.spinner-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.spinner-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-500);
+    animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+.spinner-dot:nth-child(2) { animation-delay: 0.2s; }
+.spinner-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- Score Counter ---------- */
+.score-counter {
+    animation: countUp 0.8s ease-out;
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Chip Animations ---------- */
+.chip-exit {
+    animation: chipExit 0.25s ease-in forwards;
+}
+
+@keyframes chipExit {
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+/* ---------- Bounce In ---------- */
+.bounce-in {
+    animation: bounceIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Section Reveal ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Gradient Text Shift ---------- */
+.gradient-text-animate {
+    background-size: 200% 200%;
+    animation: gradientText 4s ease-in-out infinite;
+}
+
+@keyframes gradientText {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ---------- Hover Lift ---------- */
+.hover-lift {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ---------- Ripple Effect ---------- */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.25) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.8s;
+}
+
+.ripple:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* ---------- Stagger Fade ---------- */
+.stagger-fade > * {
+    opacity: 0;
+    animation: staggerItem 0.4s ease-out forwards;
+}
+
+.stagger-fade > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-fade > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-fade > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-fade > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-fade > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-fade > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-fade > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-fade > *:nth-child(8) { animation-delay: 0.4s; }
+
+@keyframes staggerItem {
+    to { opacity: 1; }
+}
+
+/* ---------- Heartbeat ---------- */
+.heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    14% { transform: scale(1.15); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    56% { transform: scale(1); }
+}
+
+/* ---------- Badge Glow ---------- */
+.badge-glow {
+    animation: badgeGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes badgeGlow {
+    from { box-shadow: 0 0 4px rgba(26, 145, 218, 0.2); }
+    to { box-shadow: 0 0 16px rgba(26, 145, 218, 0.5); }
+}
+
+/* ---------- Typing Indicator ---------- */
+.typing-indicator {
+    display: inline-flex;
+    gap: 3px;
+    padding: 8px 12px;
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-400);
+    animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+}
+
+/* ---------- Smooth Accordion ---------- */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.accordion-content.open {
+    max-height: 2000px;
+}
+
+/* ---------- Notification Slide ---------- */
+.notification-enter {
+    animation: notifSlide 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes notifSlide {
+    from { opacity: 0; transform: translateY(-100%) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- Progress Ring ---------- */
+@keyframes progressRing {
+    from { stroke-dashoffset: 283; }
+}

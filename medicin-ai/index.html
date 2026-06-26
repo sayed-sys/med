@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MedicAI - AI-powered medical symptom checker. Analyze your symptoms and get instant health guidance, home remedies, and doctor recommendations.">
+    <title>MedicAI — Smart Health Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+    <style>
+        /* Mode Switching Tabs */
+        .mode-tabs-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 12px;
+        }
+        .mode-tab {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #9ca3af;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mode-tab:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .mode-tab.active {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+            border-color: #60a5fa;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .tab-panel.hidden {
+            display: none !important;
+        }
+
+        /* Upload Panel styling */
+        .upload-zone {
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+            background: rgba(255, 255, 255, 0.01);
+            margin-bottom: 16px;
+        }
+        .upload-zone:hover {
+            border-color: #60a5fa;
+            background: rgba(59, 130, 246, 0.02);
+        }
+        .upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        .upload-text {
+            font-size: 1rem;
+            color: #d1d5db;
+        }
+        .browse-link {
+            color: #60a5fa;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .hidden-file-input {
+            display: none;
+        }
+        .upload-preview-container {
+            margin-top: 20px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            max-height: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            background: #000;
+        }
+        #uploadPreview {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+        }
+        .remove-upload-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(239, 68, 68, 0.85);
+            color: #ffffff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .remove-upload-btn:hover {
+            background: rgb(239, 68, 68);
+        }
+
+        .routing-control {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+        }
+        .routing-control label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #9ca3af;
+        }
+        .form-select {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .form-select option {
+            background: #0f172a;
+            color: #ffffff;
+        }
+        .select-btn {
+            margin-top: 24px;
+            width: 100%;
+        }
+
+        /* Webcam Panel styling */
+        .webcam-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .webcam-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, opacity 0.2s;
+            font-size: 0.95rem;
+        }
+        .webcam-btn.start {
+            background: #10b981;
+            color: #ffffff;
+        }
+        .webcam-btn.start:hover {
+            background: #059669;
+        }
+        .webcam-btn.stop {
+            background: #ef4444;
+            color: #ffffff;
+        }
+        .webcam-btn.stop:hover {
+            background: #dc2626;
+        }
+        .webcam-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .inline-routing {
+            margin-top: 0;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+        }
+        .webcam-viewport {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000;
+            position: relative;
+            width: 100%;
+            min-height: 360px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #webcamVideo {
+            display: block;
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        #webcamVideo.hidden {
+            display: none !important;
+        }
+        #webcamCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: block;
+        }
+        .webcam-placeholder {
+            position: absolute;
+            text-align: center;
+            color: #6b7280;
+            z-index: 10;
+            padding: 20px;
+        }
+        .placeholder-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .webcam-status-text {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Emergency Overlay -->
+    <div id="emergencyOverlay" class="emergency-overlay hidden">
+        <div class="emergency-content">
+            <div class="emergency-icon pulse-emergency">⚠️</div>
+            <h2 data-i18n="emergency">EMERGENCY</h2>
+            <p id="emergencyMessage" data-i18n="emergencyMsg">Based on your symptoms, please call 108 (India emergency) or go to the nearest hospital IMMEDIATELY. Do not wait.</p>
+            <div class="emergency-numbers">
+                <a href="tel:108" class="emergency-call-btn">📞 Call 108 (Emergency)</a>
+                <a href="tel:102" class="emergency-call-btn secondary">🚑 Call 102 (Ambulance)</a>
+            </div>
+            <button id="emergencyDismiss" class="emergency-dismiss">I understand, show analysis anyway</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <span class="logo-pulse"></span>
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="16" y="8" width="8" height="24" rx="2" fill="currentColor"/>
+                            <rect x="8" y="16" width="24" height="8" rx="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="logo-text">Medic<span class="logo-accent">AI</span></h1>
+                        <p class="logo-tagline" data-i18n="appSubtitle">Smart Health Assistant</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="lang-selector">
+                        <button id="langToggle" class="lang-btn" aria-label="Switch Language">
+                            <span class="lang-icon">🌐</span>
+                            <span id="langLabel">EN</span>
+                        </button>
+                    </div>
+                    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🤖 AI-Powered Health Analysis</div>
+                <h2 class="hero-title" data-i18n="symptomsLabel">What symptoms are you experiencing?</h2>
+                <p class="hero-desc">Select your symptoms below or type them in. We'll analyze and suggest possible conditions with home care guidance.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">63+</span>
+                        <span class="stat-label">Diseases</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Symptoms</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-icons">
+                    <span class="float-icon fi-1">💊</span>
+                    <span class="float-icon fi-2">🩺</span>
+                    <span class="float-icon fi-3">❤️</span>
+                    <span class="float-icon fi-4">🫁</span>
+                    <span class="float-icon fi-5">🧬</span>
+                    <span class="float-icon fi-6">🏥</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Input Section -->
+    <section class="input-section" id="inputSection">
+        <div class="container">
+            <!-- Mode Switcher Tabs -->
+            <div class="mode-tabs-container">
+                <button class="mode-tab active" id="tabSymptoms" data-target="symptomsPanel">
+                    <span class="tab-icon">📋</span> Manual Symptoms
+                </button>
+                <button class="mode-tab" id="tabUpload" data-target="uploadPanel">
+                    <span class="tab-icon">📤</span> Photo Upload
+                </button>
+                <button class="mode-tab" id="tabWebcam" data-target="webcamPanel">
+                    <span class="tab-icon">🎥</span> Live Webcam
+                </button>
+            </div>
+
+            <!-- Panel 1: Symptoms Panel -->
+            <div id="symptomsPanel" class="tab-panel">
+                <!-- Free Text Input -->
+                <div class="search-wrapper glass-card">
+                    <div class="search-icon">🔍</div>
+                    <input 
+                        type="text" 
+                        id="symptomSearch" 
+                        class="search-input" 
+                        placeholder="Type symptoms (e.g., fever, headache, body ache)..." 
+                        data-i18n-placeholder="searchPlaceholder"
+                        autocomplete="off"
+                    >
+                    <div id="autocompleteDropdown" class="autocomplete-dropdown hidden"></div>
+                </div>
+
+                <!-- Selected Symptoms -->
+                <div id="selectedSymptomsArea" class="selected-symptoms-area hidden">
+                    <div class="selected-header">
+                        <h3 data-i18n="selectedSymptoms">Selected Symptoms</h3>
+                        <button id="clearAllBtn" class="clear-all-btn" data-i18n="clearAll">Clear All</button>
+                    </div>
+                    <div id="selectedChips" class="selected-chips"></div>
+                </div>
+
+                <!-- Body System Browser -->
+                <div class="body-system-browser">
+                    <h3 class="section-label" data-i18n="browseBySystem">Browse by Body System</h3>
+                    <div class="system-tabs" id="systemTabs">
+                        <!-- Generated by JS -->
+                    </div>
+                    <div class="symptom-grid" id="symptomGrid">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+
+                <!-- Patient Info -->
+                <div class="patient-info glass-card">
+                    <h3 class="section-label">Patient Information <span class="optional-badge">Optional</span></h3>
+                    <div class="info-grid">
+                        <div class="form-group">
+                            <label for="patientAge" data-i18n="ageLabel">Age</label>
+                            <input type="number" id="patientAge" min="1" max="120" placeholder="e.g., 25">
+                        </div>
+                        <div class="form-group">
+                            <label for="patientGender" data-i18n="genderLabel">Gender</label>
+                            <select id="patientGender">
+                                <option value="">-- Select --</option>
+                                <option value="male" data-i18n="male">Male</option>
+                                <option value="female" data-i18n="female">Female</option>
+                                <option value="other" data-i18n="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="symptomDuration" data-i18n="durationLabel">Duration (days)</label>
+                            <input type="number" id="symptomDuration" min="1" max="365" placeholder="e.g., 3">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analyze Button -->
+                <button id="analyzeBtn" class="analyze-btn" disabled>
+                    <span class="btn-icon">🔬</span>
+                    <span data-i18n="analyzeBtn">Analyze My Symptoms</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+
+            <!-- Panel 2: Image Upload Panel -->
+            <div id="uploadPanel" class="tab-panel hidden">
+                <div class="upload-wrapper glass-card">
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon">📤</div>
+                        <p class="upload-text">Drag & drop your diagnostic image here or <span class="browse-link">browse</span></p>
+                        <input type="file" id="imageFileInput" accept="image/*" class="hidden-file-input">
+                    </div>
+                    <div id="uploadPreviewContainer" class="upload-preview-container hidden">
+                        <img id="uploadPreview" src="" alt="Selected Target">
+                        <button id="removeUploadBtn" class="remove-upload-btn">✕ Remove</button>
+                    </div>
+                    
+                    <div class="routing-control">
+                        <label for="uploadModelMode">Diagnosis Specialist Routing</label>
+                        <select id="uploadModelMode" class="form-select">
+                            <option value="auto">Auto-Detect (YOLO ROI)</option>
+                            <option value="skin">Skin Classifier</option>
+                            <option value="eye">Eye Classifier</option>
+                        </select>
+                    </div>
+
+                    <button id="runUploadDiagnoseBtn" class="analyze-btn select-btn" disabled>
+                        <span class="btn-icon">🔬</span>
+                        <span>Run Diagnostic Analytics</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Panel 3: Live Webcam Panel -->
+            <div id="webcamPanel" class="tab-panel hidden">
+                <div class="webcam-wrapper glass-card">
+                    <div class="webcam-controls">
+                        <button id="startWebcamBtn" class="webcam-btn start">Start Camera Feed</button>
+                        <button id="stopWebcamBtn" class="webcam-btn stop" disabled>Stop Camera Feed</button>
+                        
+                        <div class="routing-control inline-routing">
+                            <label for="webcamModelMode">Specialist Routing</label>
+                            <select id="webcamModelMode" class="form-select">
+                                <option value="auto">Auto-Detect (YOLO ROI)</option>
+                                <option value="skin">Skin Classifier</option>
+                                <option value="eye">Eye Classifier</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="webcam-viewport">
+                        <video id="webcamVideo" autoplay playsinline muted class="hidden"></video>
+                        <canvas id="webcamCanvas"></canvas>
+                        <div id="webcamPlaceholder" class="webcam-placeholder">
+                            <span class="placeholder-icon">🎥</span>
+                            <p>Camera is offline. Click 'Start Camera Feed' to launch capturing loop.</p>
+                        </div>
+                    </div>
+                    <div id="webcamStatusText" class="webcam-status-text">Webcam Status: Offline</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="resultsSection" class="results-section hidden">
+        <div class="container">
+            <!-- Severity Banner -->
+            <div id="severityBanner" class="severity-banner hidden">
+                <div class="severity-icon"></div>
+                <div class="severity-text"></div>
+            </div>
+
+            <!-- Results Header -->
+            <div class="results-header">
+                <h2 data-i18n="resultsTitle">📋 Analysis Results</h2>
+                <p class="results-subtitle" id="resultsSummary"></p>
+            </div>
+
+            <!-- Follow-up Questions -->
+            <div id="followUpSection" class="follow-up-section hidden">
+                <div class="follow-up-card glass-card">
+                    <h3 data-i18n="followUpTitle">🤔 Did you also notice any of these?</h3>
+                    <div id="followUpChips" class="follow-up-chips"></div>
+                </div>
+            </div>
+
+            <!-- Disease Cards -->
+            <div id="diseaseCards" class="disease-cards"></div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer-card glass-card">
+                <div class="disclaimer-icon">⚕️</div>
+                <p data-i18n="disclaimer">This is AI-generated health information for educational purposes only. It is NOT a medical diagnosis. Please consult a qualified doctor for proper examination and treatment.</p>
+            </div>
+
+            <!-- Helplines -->
+            <div class="helpline-card glass-card">
+                <h3 data-i18n="helplineTitle">📞 Helpline Numbers</h3>
+                <div class="helpline-grid">
+                    <div class="helpline-item">
+                        <span class="helpline-icon">🚨</span>
+                        <div>
+                            <strong data-i18n="helplineEmergency">Emergency: 108</strong>
+                            <p>For life-threatening emergencies</p>
+                        </div>
+                    </div>
+                    <div class="helpline-item">
+                        <span class="helpline-icon">🏥</span>
+                        <div>
+                            <strong data-i18n="helplineHealth">Health Helpline: 104</strong>
+                            <p>24/7 health information & advice</p>
+                        </div>
+                    </div>
+                    <div class="helpline-item">
+                        <span class="helpline-icon">🧠</span>
+                        <div>
+                            <strong data-i18n="helplineMental">Mental Health: iCall 9152987821</strong>
+                            <p>Counseling & support</p>
+                        </div>
+                    </div>
+                    <div class="helpline-item">
+                        <span class="helpline-icon">☠️</span>
+                        <div>
+                            <strong data-i18n="helplinePoison">Poison Control: 1800-11-6117</strong>
+                            <p>Poison emergency helpline</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="footer-logo">🩺 Medic<span class="logo-accent">AI</span></span>
+                    <p>AI-powered health guidance for everyone</p>
+                </div>
+                <div class="footer-disclaimer">
+                    <p>⚕️ This tool is for educational purposes only and does not replace professional medical advice.</p>
+                    <p>Always consult a qualified healthcare provider for diagnosis and treatment.</p>
+                </div>
+                <div class="footer-meta">
+                    <p>Built with ❤️ for better health awareness</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts (order matters) -->
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

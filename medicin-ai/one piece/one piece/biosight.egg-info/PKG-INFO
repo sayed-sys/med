@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: biosight
+Version: 1.0.0
+Summary: Real-Time Multi-Disease Detection System
+Requires-Python: >=3.10

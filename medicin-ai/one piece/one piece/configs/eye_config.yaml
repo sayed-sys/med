@@ -1,0 +1,45 @@
+model:
+  name: "convnext_small"
+  pretrained: true
+  num_classes: 5
+  dropout: 0.4
+  input_size: [512, 512]
+
+training:
+  epochs: 5
+  batch_size: 16
+  num_workers: 4
+  pin_memory: true
+  mixed_precision: true
+
+optimizer:
+  name: "AdamW"
+  lr: 0.0001
+  weight_decay: 0.01
+  betas: [0.9, 0.999]
+
+scheduler:
+  name: "CosineAnnealingWarmRestarts"
+  T_0: 10
+  T_mult: 2
+  eta_min: 0.000001
+
+loss:
+  name: "FocalLoss"
+  gamma: 2.0
+  class_weighted: true
+
+early_stopping:
+  monitor: "val_auc"
+  patience: 7
+  mode: "max"
+
+paths:
+  data_dir: "data/processed/eye"
+  model_dir: "models"
+  onnx_dir: "models/onnx"
+
+wandb:
+  project: "eye-disease-detection"
+  entity: "your_username"
+  enabled: false
